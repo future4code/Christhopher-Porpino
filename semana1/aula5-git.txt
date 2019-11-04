@@ -1,0 +1,12 @@
+git clone
+git checkout -b
+git status
+git add
+git commit -m "commit"
+git push origin nome-da-branch
+git rebase
+git checkout HEAD^
+git checkout HEAD~4
+git branch -f master HEAD~3
+git reset
+git revert
