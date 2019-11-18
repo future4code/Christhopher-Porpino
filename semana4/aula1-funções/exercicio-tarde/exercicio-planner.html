@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Planner Semanal</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        header{
+            width: 99%;
+            display: flex;
+            justify-content: left;
+            padding: .5%;
+        }
+        #form-nova-tarefa {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            padding: .5%;
+        }
+        #form-nova-tarefa input, button {
+            margin: 5px;
+        }
+        .colunas-planner {
+            width: 99.3%;
+            display: flex;
+            justify-content: space-around;
+            padding: 5px;
+        }
+        .dia-da-semana {
+            width: 13%;
+            height: 83vh;
+            border: 2px solid black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        footer{
+            width: 99%;
+            display: flex;
+            justify-content: center;
+            padding: .5%;
+
+        }
+    </style>
+
+    <script>
+    // FUNÇAO CRIAR TAREFA
+        function criarTarefa(){
+            let valorDoInput = document.querySelector("#tarefa-inserida").value;
+            let diaDaSemana = document.querySelector("#escolher-dia").value;
+
+            let novaTarefa = document.criarTarefa("li");
+            
+        }
+    </script>
+
+</head>
+<body>
+
+    <header>
+        <h1>Minha Semana</h1>
+    </header>
+    <div id="form-nova-tarefa">
+
+        <label>Nova tarefa</label>
+        <input type="text" id="tarefa-inserida">
+        <select name="escolher-dia" id="escolher-dia">
+            <option value="seg">Segunda</option>
+            <option value="ter">Terça</option>
+            <option value="qua">Quarta</option>
+            <option value="qui">Quinta</option>
+            <option value="sex">Sexta</option>
+            <option value="sab">Sábado</option>
+            <option value="dom">Domingo</option>
+        </select>
+        
+        <button onclick="criarTarefa()">Definir</button>
+
+    
+        
+    </div>
+    <section class="colunas-planner">
+
+        <article class="dia-da-semana" id="segunda">
+
+            <h2>Segunda</h2>
+            
+            <hr>
+    
+            <ul>
+
+            </ul>
+
+        </article>
+
+        <article class="dia-da-semana" id="terça">
+
+            <h2>Terça</h2>
+            
+            <hr>
+    
+            <ul>
+
+            </ul>
+
+        </article>
+
+        <article class="dia-da-semana" id="quarta">
+
+            <h2>Quarta</h2>
+            
+            <hr>
+    
+            <ul>
+
+            </ul>
+            
+        </article>
+
+        <article class="dia-da-semana" id="quinta">
+
+            <h2>Quinta</h2>
+            
+            <hr>
+    
+            <ul>
+
+            </ul>
+            
+        </article>
+
+        <article class="dia-da-semana" id="sexta">
+
+            <h2>Sexta</h2>
+            
+            <hr>
+    
+            <ul>
+
+            </ul>
+            
+        </article>
+
+        <article class="dia-da-semana" id="sabado">
+
+            <h2>Sábado</h2>
+            
+            <hr>
+    
+            <ul>
+
+            </ul>
+            
+        </article>
+
+        <article class="dia-da-semana" id="domingo">
+
+            <h2>Domingo</h2>
+            
+            <hr>
+    
+            <ul>
+
+            </ul>
+            
+        </article>
+
+    </section>
+
+    <footer>
+
+        <h3>Planner Semanal</h3>
+
+    </footer>
+</body>
+</html>
