@@ -1,13 +1,12 @@
 import React from 'react';
 import './PostContainer.css';
 import FotoCurtida from '../FotoCurtida/FotoCurtida';
+import EscreverComentario from '../EscreverComentario/EscreverComentario';
 
 class PostContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            fotoCurtida: false,
-            // imagemFotoCurtida: "src={require('../imgs/favorite-white.svg')}"
         }
     }
 
@@ -24,14 +23,13 @@ class PostContainer extends React.Component {
                 </div>
 
                 <div className="footer-post">
-                    <div className="curtidas">
-                    <img id="curtir" src={require('../../imgs/favorite-white.svg')} />
-                    <p>{ this.props.curtidas }</p>
-                    {/* { FotoCurtida } */}
+                    <div className="like-container">
+                    <FotoCurtida />
+                    <p>{this.props.curtidas}</p>
                     </div>
 
                     <div className="comentarios">
-                    <img id="comentar" src={require('../../imgs/comment_icon.svg')} />
+                    <img id="comentar" onClick={EscreverComentario} src={require('../../imgs/comment_icon.svg')} />
                     <p>{ this.props.comentarios }</p>
                     </div>
                 </div>
