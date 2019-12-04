@@ -22,9 +22,10 @@ class App extends React.Component {
     };
   }
 
-  onClickBotaoAdicionar = () => {
+  aoClicarEmAdicionar = () => {
+    const novaTarefa = document.getElementById("input-de-tarefa").value
     const copiaListaDeTarefas = [...this.state.listaDeTarefas]
-    copiaListaDeTarefas.push("Novo item")
+    copiaListaDeTarefas.push(novaTarefa);
 
     this.setState({ listaDeTarefas: copiaListaDeTarefas })
 
@@ -39,14 +40,14 @@ class App extends React.Component {
       <MainContainer>
         <h1>Lista de tarefas</h1>
         <div>
-          <input />
-          <button onClick={this.onClickBotaoAdicionar}>Adicionar</button>
+          <input id="input-de-tarefa" />
+          <button onClick={this.aoClicarEmAdicionar}>Adicionar</button>
         </div>
 
         <div>
           <label>Filtro</label>
           <select>
-            <option value="">Todas</option>
+            <option value="todas">Todas</option>
             <option value="pendentes">Pendentes</option>
             <option value="completas">Completas</option>
           </select>
