@@ -271,7 +271,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/removeMusicFromPlaylist?playlistId=61946df3-161c-4cf1-97bb-4e36eab87069&musicId=b4721bdd-1f79-4497-a35b-d228da4f981c",
+							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/removeMusicFromPlaylist?playlistId=55f9da36-9ac9-4cc2-9a38-7f620640ea06&musicId=e3f774cc-283d-488f-a686-2e762ade875c",
 							"protocol": "https",
 							"host": [
 								"us-central1-spotif4",
@@ -286,11 +286,11 @@
 							"query": [
 								{
 									"key": "playlistId",
-									"value": "61946df3-161c-4cf1-97bb-4e36eab87069"
+									"value": "55f9da36-9ac9-4cc2-9a38-7f620640ea06"
 								},
 								{
 									"key": "musicId",
-									"value": "b4721bdd-1f79-4497-a35b-d228da4f981c"
+									"value": "e3f774cc-283d-488f-a686-2e762ade875c"
 								}
 							]
 						},
