@@ -80,6 +80,11 @@ class TelaDeCadastro extends React.Component {
     }
 
     render() {
+
+        const listaDeUsuariosCadastrados = this.state.allUsers.map(users => {
+            return <li> {users.name} </li>
+        });            
+
         return (
             <div>
                 <h1>Cadastro</h1>
@@ -99,6 +104,7 @@ class TelaDeCadastro extends React.Component {
                 <hr />
                 <div>
                     <ul>
+                        {listaDeUsuariosCadastrados}
                         {/* {this.state.allUsers}.map(users => (<li> {users.name} </li>)) */}
                     </ul>
                 </div>
