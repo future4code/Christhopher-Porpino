@@ -13,7 +13,7 @@ const Form = styled.form`
 
 const baseUrl = "https://us-central1-future4-users.cloudfunctions.net/api";
 
-class TelaDeCadastro extends React.Component {
+class CadastroDeUsuario extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -54,7 +54,7 @@ class TelaDeCadastro extends React.Component {
 
         const request = axios.post(url, data, {
             headers: {
-                'api-token': token
+                "api-token": token
             }
         });
 
@@ -81,8 +81,8 @@ class TelaDeCadastro extends React.Component {
 
     render() {
 
-        const listaDeUsuariosCadastrados = this.state.allUsers.map(users => {
-            return <li> {users.name} </li>
+        const listaDeUsuariosCadastrados = this.state.allUsers.map(user => {
+            return <li> {user.name} </li>
         });            
 
         return (
@@ -102,16 +102,15 @@ class TelaDeCadastro extends React.Component {
                     Cadastrar
                 </button>
                 <hr />
-                <div>
+                {/* <div>
                     <ul>
                         {listaDeUsuariosCadastrados}
-                        {/* {this.state.allUsers}.map(users => (<li> {users.name} </li>)) */}
                     </ul>
-                </div>
+                </div> */}
             </div>
         );
 
     }
 }
 
-export default TelaDeCadastro;
+export default CadastroDeUsuario;
