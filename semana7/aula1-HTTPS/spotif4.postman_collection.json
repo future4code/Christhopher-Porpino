@@ -236,7 +236,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/deletePlaylist?playlistId=string",
+							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/deletePlaylist?playlistId=255437fd-a301-41b1-8ed9-e4da0efd6018",
 							"protocol": "https",
 							"host": [
 								"us-central1-spotif4",
@@ -251,7 +251,7 @@
 							"query": [
 								{
 									"key": "playlistId",
-									"value": "string"
+									"value": "255437fd-a301-41b1-8ed9-e4da0efd6018"
 								}
 							]
 						},
