@@ -21,20 +21,24 @@
 							},
 							{
 								"key": "auth",
-								"value": "string",
+								"value": "christhopher",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"string\"\n}"
+							"raw": "{\n\t\"name\": \"Rap\"\n}"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/playlists/createPlaylist",
+							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/createPlaylist",
+							"protocol": "https",
 							"host": [
-								"{{baseUrl}}"
+								"us-central1-spotif4",
+								"cloudfunctions",
+								"net"
 							],
 							"path": [
+								"api",
 								"playlists",
 								"createPlaylist"
 							]
@@ -89,24 +93,29 @@
 							{
 								"key": "auth",
 								"type": "text",
-								"value": "string"
+								"value": "christhopher"
 							},
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"playlistId\": \"string\",\n\t\"music\": {\n\t\t\"name\": \"string\",\n\t\t\"artist\": \"string\"\n\t}\n}"
+							"raw": "{\n\t\"playlistId\": \"255437fd-a301-41b1-8ed9-e4da0efd6018\",\n\t\"music\": {\n\t\t\"name\": \"Canção Infantil\",\n\t\t\"artist\": \"Cesar MC\",\n\t\t\"url\": \"https://www.youtube.com/watch?v=Ri-eF5PJ2X0\"\n\t}\n}"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/playlists/addMusicToPlaylist",
+							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/addMusicToPlaylist",
+							"protocol": "https",
 							"host": [
-								"{{baseUrl}}"
+								"us-central1-spotif4",
+								"cloudfunctions",
+								"net"
 							],
 							"path": [
+								"api",
 								"playlists",
 								"addMusicToPlaylist"
 							]
@@ -122,16 +131,26 @@
 						"header": [
 							{
 								"key": "auth",
-								"value": "string",
+								"value": "christhopher",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/playlists/getAllPlaylists",
+							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/getAllPlaylists",
+							"protocol": "https",
 							"host": [
-								"{{baseUrl}}"
+								"us-central1-spotif4",
+								"cloudfunctions",
+								"net"
 							],
 							"path": [
+								"api",
 								"playlists",
 								"getAllPlaylists"
 							]
@@ -148,22 +167,26 @@
 							{
 								"key": "auth",
 								"type": "text",
-								"value": "string"
+								"value": "christhopher"
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/playlists/searchPlaylist?playlistName=string",
+							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/searchPlaylist?playlistName=bossa nova",
+							"protocol": "https",
 							"host": [
-								"{{baseUrl}}"
+								"us-central1-spotif4",
+								"cloudfunctions",
+								"net"
 							],
 							"path": [
+								"api",
 								"playlists",
 								"searchPlaylist"
 							],
 							"query": [
 								{
 									"key": "playlistName",
-									"value": "string"
+									"value": "bossa nova"
 								}
 							]
 						},
@@ -178,19 +201,23 @@
 						"header": [
 							{
 								"key": "auth",
-								"value": "string",
+								"value": "christhopher",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/playlists/getPlaylistMusics/string",
+							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/getPlaylistMusics/255437fd-a301-41b1-8ed9-e4da0efd6018",
+							"protocol": "https",
 							"host": [
-								"{{baseUrl}}"
+								"us-central1-spotif4",
+								"cloudfunctions",
+								"net"
 							],
 							"path": [
+								"api",
 								"playlists",
 								"getPlaylistMusics",
-								"string"
+								"255437fd-a301-41b1-8ed9-e4da0efd6018"
 							]
 						},
 						"description": "### Descrição:\nEsta requisição permite verificar quais músicas estão em uma determinada playlist\n\n### Input:\n**Headers**\n<br/>`auth`: token de autenticação\n```\n\tauth: \"string\" \n```\n\n**Path Param**\n<br/>`playlistId`: id da playlist (obrigatório)\n\n### Output:\n**Body**\n<br/> `quantity`: quantidade de músicas da playlist\n<br/> `musics`: array com as informações das músicas\n<br/> `id`: id de cada música\n<br/> `name`: nome de cada música\n<br/> `artist`: cantor ou band da música\n<br/>`url`: URL da música para ser tocada\n```\n{\n    \"result\": {\n        \"quantity\": \"number\",\n        \"musics\": [ \n            {\n                \"id\": \"string\", \n                \"name\": \"string\", \n                \"artist\": \"string\",\n                \"url\": \"string\"\n            }\n        ]\n    }\n}\n```\n\n"
@@ -205,15 +232,19 @@
 							{
 								"key": "auth",
 								"type": "text",
-								"value": "string"
+								"value": "christhopher"
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/playlists/deletePlaylist?playlistId=string",
+							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/deletePlaylist?playlistId=string",
+							"protocol": "https",
 							"host": [
-								"{{baseUrl}}"
+								"us-central1-spotif4",
+								"cloudfunctions",
+								"net"
 							],
 							"path": [
+								"api",
 								"playlists",
 								"deletePlaylist"
 							],
@@ -240,11 +271,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/playlists/removeMusicFromPlaylist?playlistId=string&musicId=string",
+							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/removeMusicFromPlaylist?playlistId=string&musicId=string",
+							"protocol": "https",
 							"host": [
-								"{{baseUrl}}"
+								"us-central1-spotif4",
+								"cloudfunctions",
+								"net"
 							],
 							"path": [
+								"api",
 								"playlists",
 								"removeMusicFromPlaylist"
 							],
