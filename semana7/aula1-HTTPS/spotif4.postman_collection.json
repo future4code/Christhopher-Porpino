@@ -27,7 +27,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"Quero aprender a tocar\"\n}"
+							"raw": "{\n\t\"name\": \"Bálsamo\"\n}"
 						},
 						"url": {
 							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/createPlaylist",
@@ -104,7 +104,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"playlistId\": \"55f9da36-9ac9-4cc2-9a38-7f620640ea06\",\n\t\"music\": {\n\t\t\"name\": \"One for Daddy-O\",\n\t\t\"artist\": \"Cannonball Adderley\",\n\t\t\"url\": \"https://www.youtube.com/watch?v=u2xx3YTu2ac\"\n\t}\n}"
+							"raw": "{\n\t\"playlistId\": \"b58a2ec2-35a7-4f16-bf9b-522f2a8194b4\",\n\t\"music\": {\n\t\t\"name\": \"Deus Sabe, Deus Ouve, Deus Vê\",\n\t\t\"artist\": \"Leonardo Gonçalves\",\n\t\t\"url\": \"https://www.youtube.com/watch?v=7kEXuiIit_E\"\n\t}\n}"
 						},
 						"url": {
 							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/addMusicToPlaylist",
@@ -206,7 +206,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/getPlaylistMusics/55f9da36-9ac9-4cc2-9a38-7f620640ea06",
+							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/getPlaylistMusics/b58a2ec2-35a7-4f16-bf9b-522f2a8194b4",
 							"protocol": "https",
 							"host": [
 								"us-central1-spotif4",
@@ -217,7 +217,7 @@
 								"api",
 								"playlists",
 								"getPlaylistMusics",
-								"55f9da36-9ac9-4cc2-9a38-7f620640ea06"
+								"b58a2ec2-35a7-4f16-bf9b-522f2a8194b4"
 							]
 						},
 						"description": "### Descrição:\nEsta requisição permite verificar quais músicas estão em uma determinada playlist\n\n### Input:\n**Headers**\n<br/>`auth`: token de autenticação\n```\n\tauth: \"string\" \n```\n\n**Path Param**\n<br/>`playlistId`: id da playlist (obrigatório)\n\n### Output:\n**Body**\n<br/> `quantity`: quantidade de músicas da playlist\n<br/> `musics`: array com as informações das músicas\n<br/> `id`: id de cada música\n<br/> `name`: nome de cada música\n<br/> `artist`: cantor ou band da música\n<br/>`url`: URL da música para ser tocada\n```\n{\n    \"result\": {\n        \"quantity\": \"number\",\n        \"musics\": [ \n            {\n                \"id\": \"string\", \n                \"name\": \"string\", \n                \"artist\": \"string\",\n                \"url\": \"string\"\n            }\n        ]\n    }\n}\n```\n\n"
