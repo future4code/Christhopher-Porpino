@@ -104,7 +104,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"playlistId\": \"255437fd-a301-41b1-8ed9-e4da0efd6018\",\n\t\"music\": {\n\t\t\"name\": \"Canção Infantil\",\n\t\t\"artist\": \"Cesar MC\",\n\t\t\"url\": \"https://www.youtube.com/watch?v=Ri-eF5PJ2X0\"\n\t}\n}"
+							"raw": "{\n\t\"playlistId\": \"61946df3-161c-4cf1-97bb-4e36eab87069\",\n\t\"music\": {\n\t\t\"name\": \"Samba de uma nota só\",\n\t\t\"artist\": \"Nara Leão\",\n\t\t\"url\": \"https://www.youtube.com/watch?v=_SD0LnNrBm8\"\n\t}\n}"
 						},
 						"url": {
 							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/addMusicToPlaylist",
@@ -206,7 +206,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/getPlaylistMusics/255437fd-a301-41b1-8ed9-e4da0efd6018",
+							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/getPlaylistMusics/61946df3-161c-4cf1-97bb-4e36eab87069",
 							"protocol": "https",
 							"host": [
 								"us-central1-spotif4",
@@ -217,7 +217,7 @@
 								"api",
 								"playlists",
 								"getPlaylistMusics",
-								"255437fd-a301-41b1-8ed9-e4da0efd6018"
+								"61946df3-161c-4cf1-97bb-4e36eab87069"
 							]
 						},
 						"description": "### Descrição:\nEsta requisição permite verificar quais músicas estão em uma determinada playlist\n\n### Input:\n**Headers**\n<br/>`auth`: token de autenticação\n```\n\tauth: \"string\" \n```\n\n**Path Param**\n<br/>`playlistId`: id da playlist (obrigatório)\n\n### Output:\n**Body**\n<br/> `quantity`: quantidade de músicas da playlist\n<br/> `musics`: array com as informações das músicas\n<br/> `id`: id de cada música\n<br/> `name`: nome de cada música\n<br/> `artist`: cantor ou band da música\n<br/>`url`: URL da música para ser tocada\n```\n{\n    \"result\": {\n        \"quantity\": \"number\",\n        \"musics\": [ \n            {\n                \"id\": \"string\", \n                \"name\": \"string\", \n                \"artist\": \"string\",\n                \"url\": \"string\"\n            }\n        ]\n    }\n}\n```\n\n"
@@ -267,11 +267,11 @@
 							{
 								"key": "auth",
 								"type": "text",
-								"value": "string"
+								"value": "christhopher"
 							}
 						],
 						"url": {
-							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/removeMusicFromPlaylist?playlistId=string&musicId=string",
+							"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/removeMusicFromPlaylist?playlistId=61946df3-161c-4cf1-97bb-4e36eab87069&musicId=b4721bdd-1f79-4497-a35b-d228da4f981c",
 							"protocol": "https",
 							"host": [
 								"us-central1-spotif4",
@@ -286,11 +286,11 @@
 							"query": [
 								{
 									"key": "playlistId",
-									"value": "string"
+									"value": "61946df3-161c-4cf1-97bb-4e36eab87069"
 								},
 								{
 									"key": "musicId",
-									"value": "string"
+									"value": "b4721bdd-1f79-4497-a35b-d228da4f981c"
 								}
 							]
 						},
