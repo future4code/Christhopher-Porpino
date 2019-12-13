@@ -1,0 +1,43 @@
+.feed{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-container {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    border: solid black 1px;
+}
+
+.header-post {
+    display: flex;
+    align-items: center;
+}
+
+#profile {
+    border-radius: 50%;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+}
+
+.footer-post {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.like-container , .comentarios {
+    display: flex;
+    align-items: center;
+}
+
+.footer-post img {
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+}
