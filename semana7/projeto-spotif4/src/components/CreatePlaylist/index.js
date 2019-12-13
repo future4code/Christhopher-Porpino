@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import axios from 'axios';
 
 const baseURL = "https://us-central1-spotif4.cloudfunctions.net/api"
@@ -13,33 +13,32 @@ class CreatePlaylist extends React.Component {
         };
     }
 
-    createPlaylist = () => {
-        const url = `${baseURL}//playlists/createPlaylist`
-        const token = "christhopher"
+    // createPlaylist = () => {
+    //     const url = `${baseURL}/playlists/createPlaylist`
+    //     const token = "christhopher"
 
-        const data = {
-            "name": this.state.name
-        }
+    //     const data = {
+    //         "name": "teste"
+    //     }
 
-        const requestCreatePlaylist = axios.post(url, data, {
-            header: {
-                auth: token
-            }
-        });
+    //     const axiosConfig = {
+    //         header: {
+    //             // "Content-Type": "application/json"
+    //             auth: token
+    //         }
+    //     }
 
-        requestCreatePlaylist.then((response) => {
-            console.log(response.data.result.list)
-            this.getAllUsers();
-        })
-    }
+    //     const requestCreatePlaylist = axios.post(url, data, axiosConfig)
 
-    componentDidMount() {
-        this.createPlaylist();
-    }
+    //     requestCreatePlaylist.then((response) => {
+    //         console.log(response.data)
+    //         // this.getAllPlaylists();
+    //     })
+    // }
 
-    onNameInputChange = (e) => {
-        this.setState({ name: event.target.value })
-    }
+    // // onNameInputChange = (e) => {
+    // //     this.setState({ name: e.target.value })
+    // // }
 
 
 
@@ -47,8 +46,13 @@ class CreatePlaylist extends React.Component {
         return (
             <div>
                 <label>Nome da nova playlist: </label>
-                <input></input>
-                <button onClick={() => this.createPlaylist()}>
+                <input type="text"
+                // onChange={this.onNameInputChange}
+                // value={this.state.name} 
+                />
+                <button
+                // onClick={this.createPlaylist()}
+                >
                     Criar
                 </button>
             </div>
