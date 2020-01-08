@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { createStore } from 'redux';
+import rootReducer from './reducers';
 
 const Root = styled.div`
   display: flex;
@@ -30,67 +32,38 @@ const ButtonDeleteTask = styled.p`
 const Footer = styled.footer`
 `
 
-const createNewTask = (name) => {
-  return {
-    type: "CREATE_NEW_TASK",
-    payload: {
-      name: name
-    } 
-  };
-};
-
-const doneTask = (id) => {
-  return {
-    type: "DONE_TASK",
-    payload: {
-      id: id
-    }
-  };
-};
-
-const deleteTask = (id) => {
-  return {
-    type: "DELETE_TASK",
-    payload: {
-      id: id
-    }
-  };
-};
-
-const markAllTasks = () => {
-  return {
-    type: "MARK_ALL_TASKS",
-  };
-};
+const store = createStore(rootReducer);
 
 const initialState = {
   newTask: "",
   tasks: [
     {
-      id: 0, 
-      name: "" ,
+      id: 0,
+      name: "",
     }
   ]
 };
 
 function App() {
   return (
-    <Root>
-      <h1>4Task</h1>
-      <label>Insira nova tarefa:</label>
-      <InputNewTask></InputNewTask>
-      <TaskList>
-        <input type="checkbox"></input>
-        <TaskName>Usar Redux</TaskName>
-        <ButtonDeleteTask>X</ButtonDeleteTask>
-      </TaskList>
-      <Footer>
-      <button>Marcar todas as tarefas</button>
-      <button value="allTasks">Todas</button>
-      <button value="doneTasks">Concluídas</button>
-      <button value="pending">Pendentes</button>
-      </Footer>
-    </Root>
+    <Provider store={store}>
+      <Root>
+        <h1>4Task</h1>
+        <label>Insira nova tarefa:</label>
+        <InputNewTask></InputNewTask>
+        <TaskList>
+          <input type="checkbox"></input>
+          <TaskName>Usar Redux</TaskName>
+          <ButtonDeleteTask>X</ButtonDeleteTask>
+        </TaskList>
+        <Footer>
+          <button>Marcar todas as tarefas</button>
+          <button value="allTasks">Todas</button>
+          <button value="doneTasks">Concluídas</button>
+          <button value="pending">Pendentes</button>
+        </Footer>
+      </Root>
+    </Provider>
   );
 }
 
