@@ -1,3 +1,13 @@
+export const initialState = {
+    newTask: "",
+    tasks: [
+        {
+            id: 0,
+            name: "",
+        }
+    ]
+};
+
 export const addTaskAction = newTask => {
     return {
         type: "ADD_TASK"
@@ -39,3 +49,4 @@ export const markAllTasks = () => {
         type: "MARK_ALL_TASKS",
     };
 };
+
