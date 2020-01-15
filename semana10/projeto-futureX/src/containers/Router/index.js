@@ -2,20 +2,41 @@ import React from "react";
 import { ConnectedRouter } from "connected-react-router";
 import { Switch, Route } from "react-router-dom";
 import LoginPage from "../LoginPage";
+import HomeScreen from "../Home";
+import FormPage from "../FormPage";
+import ApplicationsPage from "../ApplicationsPage";
+import CreateTrip from "../CreateTrip";
+import ListTripsPage from "../ListTripsPage"
 
 
 
-
-const routes = {
-  root: "/"
-  // Outras rotas aqui
+export const routes = {
+  root: "/",
+  formPage: "/application-form",
+  login: "/login",
+  createTrip: "/trips/create",
+  tripsList: "/trips/list",
+  tripsDetails: "/trips/details",
+  applications: "/applications"
 };
 
 function Router(props) {
   return (
     <ConnectedRouter history={props.history}>
       <Switch>
-        <Route path={routes.root} component={LoginPage} />
+        <Route exact path={routes.root} component={HomeScreen} />
+
+        <Route path={routes.formPage} component={FormPage} />
+
+        <Route path={routes.login} component={LoginPage} />
+
+        <Route path={routes.createTrip} component={CreateTrip} />
+
+        <Route path={routes.applications} component={ApplicationsPage} /> 
+
+        {/* <Route path={routes.tripsDetails} component={TripsDetails} /> */}
+
+        <Route path={routes.tripsList} component={ListTripsPage} />
       </Switch>
     </ConnectedRouter>
   );

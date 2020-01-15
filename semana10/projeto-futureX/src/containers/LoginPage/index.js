@@ -5,14 +5,33 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
 
-const LoginWrapper = styled.form`
+const MainContainer = styled.div`
   width: 100%;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+`
+
+const LoginWrapper = styled.form`
+  width: 100%;
+  height: 100%;
   gap: 10px;
   place-content: center;
   justify-items: center;
   display: grid;
 `;
+
+const Header = styled.header`
+  width: 100%;
+  height: 60px;
+  background: red;
+`
+
+const Footer = styled.footer`
+  width: 100%;
+  height: 60px;
+  background: red;
+`
 
 class LoginPage extends Component {
   constructor(props) {
@@ -33,25 +52,42 @@ class LoginPage extends Component {
     const { email, password } = this.state;
 
     return (
-      <LoginWrapper>
-        <TextField
-          onChange={this.handleFieldChange}
-          name="email"
-          type="email"
-          label="E-mail"
-          value={email}
-        />
-        <TextField
-          onChange={this.handleFieldChange}
-          name="password"
-          type="password"
-          label="Password"
-          value={password}
-        />
-        <Button>Login</Button>
-      </LoginWrapper>
+      <MainContainer>
+        <Header>
+          <button onClick={this.props.goToHome}>Home</button>
+        </Header>
+        <LoginWrapper>
+          <TextField
+            onChange={this.handleFieldChange}
+            name="email"
+            type="email"
+            label="E-mail"
+            value={email}
+          />
+          <TextField
+            onChange={this.handleFieldChange}
+            name="password"
+            type="password"
+            label="Password"
+            value={password}
+          />
+          <Button>Login</Button>
+        </LoginWrapper>
+        <Footer>
+          <button onClick={this.props.goToHome}>Voltar</button>
+        </Footer>
+      </MainContainer>
     );
   }
 }
 
-export default LoginPage;
+function mapDispatchToProps(dispatch) {
+  return {
+    goToHome: () => dispatch(push("/"))
+  };
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(LoginPage);
