@@ -25,22 +25,35 @@ const Footer = styled.footer`
   bottom: 0;
 `
 
-const FormPage = props => {
-    console.log(props);
-    return (
-        <MainContainer>
-            <Header>
-                <button onClick={props.goToHome}>Voltar</button>
-                <button onClick={props.goToLogin}>Login</button>
-            </Header>
-            <h1>Formulário de inscrição</h1>
+class FormPage extends React.Component {
+    constructor(props) {
+        super(props);
 
-            <Footer>
-                <button onClick={props.goToHome}>Voltar</button>
-            </Footer>
-        </MainContainer>
-    );
-};
+        this.state = {
+            postValue: "" //lembrar de mudar nome disso aqui
+        };
+    }
+
+    onChangePost = event => {
+        this.setState({ postValue:event.target.value});
+    }
+
+    render() {
+        return (
+            <MainContainer>
+                <Header>
+                    <button onClick={this.props.goToHome}>Voltar</button>
+                    <button onClick={this.props.goToLogin}>Login</button>
+                </Header>
+                <h1>Formulário de inscrição</h1>
+
+                <Footer>
+                    <button onClick={this.props.goToHome}>Voltar</button>
+                </Footer>
+            </MainContainer>
+        );
+    };
+}
 
 function mapDispatchToProps(dispatch) {
     return {

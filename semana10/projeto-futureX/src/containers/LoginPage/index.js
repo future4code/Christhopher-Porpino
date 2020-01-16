@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
+import { routes } from "../Router";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
@@ -71,7 +72,7 @@ class LoginPage extends Component {
             label="Password"
             value={password}
           />
-          <Button>Login</Button>
+          <Button onClick={this.props.goToApplications}>Login</Button>
         </LoginWrapper>
         <Footer>
           <button onClick={this.props.goToHome}>Voltar</button>
@@ -83,7 +84,8 @@ class LoginPage extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    goToHome: () => dispatch(push("/"))
+    goToHome: () => dispatch(push("/")),
+    goToApplications: () => dispatch(push(routes.applications)),
   };
 }
 

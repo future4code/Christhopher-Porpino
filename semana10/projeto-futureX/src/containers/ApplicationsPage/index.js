@@ -20,8 +20,8 @@ const Header = styled.header`
 const Footer = styled.footer`
   width: 100%;
   height: 60px;
-  background: green;
-  position: blue;
+  background: blue;
+  position: absolute;
   bottom: 0;
 `
 

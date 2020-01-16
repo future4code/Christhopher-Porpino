@@ -14,34 +14,34 @@ const MainContainer = styled.div`
 const Header = styled.header`
   width: 100%;
   height: 60px;
-  background: pink;
+  background: violet;
 `
 
 const Footer = styled.footer`
   width: 100%;
   height: 60px;
-  background: pink;
+  background: violet;
   position: absolute;
   bottom: 0;
 `
 
-const CreateTrip = props => {
+const TripDetailsPage = props => {
     console.log(props);
     return (
         <MainContainer>
             <Header>
-            <div>
+                <div>
                     <button onClick={props.goToHome}>Home</button>
                 </div>
                 <div>
-                <button onClick={props.goToApplications}>Inscrições</button>
-                <button disabled onClick={props.goToCreateTrip}>Criar Viagem</button>
-                <button onClick={props.goToTripList}>Ver Viagens</button>
+                    <button onClick={props.goToApplications}>Inscrições</button>
+                    <button onClick={props.goToCreateTrip}>Criar Viagem</button>
+                    <button onClick={props.goToTripList}>Ver Viagens</button>
                 </div>
-                
-                
+
+
             </Header>
-            <h1>Criar Nova Viagem</h1>
+            <h1>Detalhes da Viagem</h1>
 
             <Footer>
                 <button onClick={props.goToHome}>Voltar</button>
@@ -62,4 +62,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     null,
     mapDispatchToProps
-)(CreateTrip);
+)(TripDetailsPage);

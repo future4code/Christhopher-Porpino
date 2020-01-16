@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { push, replace, goBack } from "connected-react-router";
 import { routes } from "../Router"
-import styled from "styled-components";
+// import styled from "styled-components";
 
 
 const HomeScreen = props => {
