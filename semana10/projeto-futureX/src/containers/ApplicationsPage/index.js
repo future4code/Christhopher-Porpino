@@ -34,13 +34,30 @@ const ApplicationsPage = props => {
                     <button onClick={props.goToHome}>Home</button>
                 </div>
                 <div>
-                <button disabled onClick={props.goToApplications}>Inscrições</button>
-                <button onClick={props.goToCreateTrip}>Criar Viagem</button>
-                <button onClick={props.goToTripList}>Ver Viagens</button>
+                    <button disabled onClick={props.goToApplications}>Inscrições</button>
+                    <button onClick={props.goToCreateTrip}>Criar Viagem</button>
+                    <button onClick={props.goToTripList}>Ver Viagens</button>
                 </div>
             </Header>
             <h1>Lista de Candidatos</h1>
-
+            {/* <ol>
+                {this.props.trips.map((trip) => (
+                    <li>
+                        Viagem: {trip.name},
+                        Planeta: {trip.age},
+                        Data: {trip.applicationText},
+                        Descrição: {trip.profession},
+                        Dias de Duração: {trip.country}
+                        TripId: {trip.trip}
+                    </li>
+                    name: "Soter Padua",
+                    age: 23, // Tem que ser maior de 18 anos
+                    applicationText: "Sou um bom candidato por X, Y e Z", // Resposta de "porque sou um bom candidato(a)?"
+                    profession: "Capturador de Bug", // Campo aberto
+                    country: "Brasil", // Idealmente um dropdown
+                    trip
+                ))}
+            </ol> */}
             <Footer>
                 <button onClick={props.goToHome}>Voltar</button>
             </Footer>
@@ -48,16 +65,22 @@ const ApplicationsPage = props => {
     );
 };
 
+// const mapStateToProps = state => ({
+//     trips: state.trips.allTrips
+// });
+
 function mapDispatchToProps(dispatch) {
     return {
         goToHome: () => dispatch(push(routes.root)),
         goToCreateTrip: () => dispatch(push(routes.createTrip)),
         goToApplications: () => dispatch(push(routes.applications)),
         goToTripList: () => dispatch(push(routes.tripsList)),
+        // fetchAllCandidates: () => dispatch(getTrips())
     };
 }
 
 export default connect(
+    // mapStateToProps,
     null,
     mapDispatchToProps
 )(ApplicationsPage);

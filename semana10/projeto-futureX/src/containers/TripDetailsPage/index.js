@@ -25,30 +25,61 @@ const Footer = styled.footer`
   bottom: 0;
 `
 
-const TripDetailsPage = props => {
-    console.log(props);
-    return (
-        <MainContainer>
-            <Header>
-                <div>
-                    <button onClick={props.goToHome}>Home</button>
-                </div>
-                <div>
-                    <button onClick={props.goToApplications}>Inscrições</button>
-                    <button onClick={props.goToCreateTrip}>Criar Viagem</button>
-                    <button onClick={props.goToTripList}>Ver Viagens</button>
-                </div>
+class TripDetailsPage extends React.Component {
+    
+    componentDidMount() 
+        this.props.fetchTripDetails(this.props.selectedTripId) //mexer aqui
+    };
 
+    render() {
 
-            </Header>
-            <h1>Detalhes da Viagem</h1>
+        console.log(this.props);
 
-            <Footer>
-                <button onClick={props.goToHome}>Voltar</button>
-            </Footer>
-        </MainContainer>
-    );
+        return (
+            <MainContainer>
+                <Header>
+                    <div>
+                        <button onClick={this.props.goToHome}>Home</button>
+                    </div>
+                    <div>
+                        <button onClick={this.props.goToApplications}>Inscrições</button>
+                        <button onClick={this.props.goToCreateTrip}>Criar Viagem</button>
+                        <button onClick={this.props.goToTripList}>Ver Viagens</button>
+                    </div>
+                </Header>
+
+                <section>
+                    {this.props.trips.map((trip) => (
+                        <h1>
+                            Detalhes da Viagem - {trip.name}
+                        </h1>
+                    ))}
+                    {/* <div>
+                    {props.trips.map((trip) => (
+                        <div>
+                            Viagem: {trip.name},
+                                Planeta: {trip.planet},
+                                Data: {trip.date},
+                                Descrição: {trip.description},
+                                Dias de Duração: {trip.durationInDays}
+                        </div>
+                    ))}
+                    </div> */}
+                </section>
+
+                <Footer>
+                    <button onClick={this.props.goToHome}>Home</button>
+                </Footer>
+            </MainContainer>
+        );
+    }
 };
+
+const mapStateToProps = state => ({
+    trips: state.trips.allTrips,
+    selectedTripId: state.trips.selectedTripId,
+    candidates: state.trips.candidates
+});
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -56,10 +87,12 @@ function mapDispatchToProps(dispatch) {
         goToApplications: () => dispatch(push(routes.applications)),
         goToCreateTrip: () => dispatch(push(routes.createTrip)),
         goToTripList: () => dispatch(push(routes.tripsList)),
+        // fetchTripDetails: () => dispatch(getTripDetails())
     };
 }
 
 export default connect(
-    null,
+    mapStateToProps,
+    // null,
     mapDispatchToProps
 )(TripDetailsPage);

@@ -27,14 +27,18 @@ const Footer = styled.footer`
 `
 
 class ListTripsPage extends React.Component {
+    //esse método de classe irá disparar uma ação que guarda na store o id da viagem clicada
+    handleGoToTripDetails = (tripID) => {
+        this.props.fetchCandidates(tripID) 
+        console.log("") // descobrir como mostrar id da trip selecionada
+        // tripID='' 
+    }
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.fetchAllTrips()
     };
 
-    
-    render(){
-        console.log(this.props);
+    render() {
         
         return (
             <MainContainer>
@@ -51,10 +55,23 @@ class ListTripsPage extends React.Component {
                 <section>
                     <h1>Lista de Viagens</h1>
                     <ol>
-                        {this.props.trips.map((trip) => (<p>{trip.name}</p>))}
+                        {this.props.trips.map((trip) => (
+                            <li>
+                                <div>Viagem: {trip.name},
+                                Planeta: {trip.planet},
+                                Data: {trip.date},
+                                Descrição: {trip.description},
+                                Dias de Duração: {trip.durationInDays}
+                                </div>
+                                <button id={trip.id} onClick={
+                                    // this.props.goToTripDetailsPage
+                                    this.saveId}>
+                                    Ver Detalhes
+                                </button>
+                            </li>
+                        ))}
                     </ol>
                 </section>
-                <button onClick={this.props.goToTripDetailsPage}>Ver Detalhes</button>
                 <Footer>
                     <button onClick={this.props.goToHome}>Voltar</button>
                 </Footer>
@@ -73,7 +90,8 @@ function mapDispatchToProps(dispatch) {
         goToCreateTrip: () => dispatch(push(routes.createTrip)),
         goToApplications: () => dispatch(push(routes.applications)),
         goToTripDetailsPage: () => dispatch(push(routes.tripDetails)),
-        fetchAllTrips: () => dispatch(getTrips())
+        fetchAllTrips: () => dispatch(getTrips()),
+        setTripId:
     };
 }
 
