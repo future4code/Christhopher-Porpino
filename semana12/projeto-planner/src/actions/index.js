@@ -16,10 +16,26 @@ export const getTasks = () => async (dispatch) => {
     const headers = { headers: { "Content-Type": "application/json" } }
     const response = await axios.get(`${baseURL}`, headers)
 
-    console.log(response.data)
-    console.log(response.data.tasks)
-    dispatch(getTasksAction(response.data.tasks))
+    // console.log(response.data)
+    
+    dispatch(getTasksAction(response.data))
 }
+
+// axios.get = jest.fn(() => {
+//     return {
+//         data: {
+//             tasks: [{
+//                 id: "",
+//                 text: "",
+//                 day: "",               
+//             }]
+//         }
+//     }
+// })
+
+// const response = axios.get()
+
+// console.log(response.data.tasks)
 
 //Create Task
 export const createTask = (text, day) => async (dispatch) => {

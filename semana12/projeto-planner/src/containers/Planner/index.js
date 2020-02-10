@@ -18,9 +18,31 @@ const Day = styled.ul`
 `
 
 class Planner extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: "",
+      day: ""
+    }
+  }
+
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { text, title } = this.state
+    this.props.createPost(text, title)
+    this.setState({ text: "", day: "" })
+    console.log()
+  }
+
+
   componentDidMount() {
     this.props.getTasks()
-    
   }
 
   render() {
@@ -32,52 +54,58 @@ class Planner extends React.Component {
             margin="normal"
             required
             fullWidth
-            label="Nome de Usuário"
-            autoComplete="username"
+            label="Nome da Tarefa"
+            autoComplete="text"
             autoFocus
             component="h1"
             type="text"
-            name="username"
-          // value={this.state.username}
-          // onChange={this.handleChange}
+            name="text"
+          value={this.state.text}
+          onChange={this.handleChange}
           />
         </form>
-        <Week>
-          <Day> Segunda
-            <li>Segundou</li>
-          </Day>
-          <Day>
-            Terça
+
+        {this.props.allTasks.map((task) =>
+          <Week>
+            <Day> Segunda
+              <li>
+                {console.log(task)}
+                {task.text}
+              </li>
+            </Day>
+            <Day>
+              Terça
             <li>Terçou</li>
-          </Day>
-          <Day> Quarta
+            </Day>
+            <Day> Quarta
             <li>Quartou</li>
-          </Day>
-          <Day> Quinta
+            </Day>
+            <Day> Quinta
             <li>Quintou</li>
-          </Day>
-          <Day> Sexta
+            </Day>
+            <Day> Sexta
             <li>Sextou</li>
-          </Day>
-          <Day> Sábado
+            </Day>
+            <Day> Sábado
             <li>Sabadou</li>
-          </Day>
-          <Day> Domingo
+            </Day>
+            <Day> Domingo
             <li>Domingou</li>
-          </Day>
-        </Week>
+            </Day>
+          </Week>
+        )}
       </div>
     );
   }
 }
 
-// const mapStateToProps = state => ({
-//   allTasks: state.posts.allTasks,
-//   selectIdTask: state.posts.selectIdTask,
-// })
+const mapStateToProps = state => ({
+  allTasks: state.tasks.allTasks,
+  // selectIdTask: state.posts.selectIdTask,
+})
 
 const mapDispatchToProps = dispatch => ({
   getTasks: () => dispatch(getTasks()),
 });
 
-export default connect(null, mapDispatchToProps)(Planner);
+export default connect(mapStateToProps, mapDispatchToProps)(Planner);
