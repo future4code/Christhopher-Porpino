@@ -1,0 +1,16 @@
+{
+  "name": "gestor-de-tarefas-do-christhopher",
+  "version": "1.0.0",
+  "description": "um gestor de tarefas feito para aula1 de node.js do curso maravilhoso da future4.",
+  "main": "gestorDeTarefas.js",
+  "scripts": {
+    "start": "node gestorDeTarefas.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gestor",
+    "tarefas"
+  ],
+  "author": "Christhopher Porpino",
+  "license": "ISC"
+}
