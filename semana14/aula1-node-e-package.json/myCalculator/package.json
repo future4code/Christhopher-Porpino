@@ -1,0 +1,15 @@
+{
+  "name": "calculadora-do-chris",
+  "version": "1.0.0",
+  "description": "uma calculadora simples e funcional",
+  "main": "myCalculator.js",
+  "scripts": {
+    "start": "node myCalculator.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "calculadora"
+  ],
+  "author": "Christhopher Porpino",
+  "license": "ISC"
+}
