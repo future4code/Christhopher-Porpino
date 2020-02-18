@@ -1,5 +1,6 @@
 export abstract class Dish {
   constructor(
+    public name: string,
     protected price: number,
     protected cost: number,
     protected ingredients: string[],

@@ -4,16 +4,21 @@ import { SaltyDish } from "./classes/saltydish";
 import { Dessert } from "./classes/dessert";
 
 const tortaDeLimao = new Dessert(
-    5, 2, ["farinha"], 30, 8
+    "torta de limao", 5, 2, ["farinha"], 30, 8
 )
 
 const lasanha = new SaltyDish(
-    6, 3, ["macarrao"], 40
+    "lasanha", 6, 3, ["macarrao"], 40
+)
+
+const feijoada = new SaltyDish(
+    "feijoada", 100, 20, ["leite condensado"], 100
 )
 
 const dishes: Dish[] = [
     tortaDeLimao,
-    lasanha
+    lasanha,
+    feijoada,
 ];
 
 abstract class Employee {
@@ -53,11 +58,22 @@ class Manager extends Cashier {
 
 class Chef extends Employee {
     public sayJob(): string {
-        return "Eu sou um Chef"
+        return "Você é a vergonha prrofission!"
     }
     // TO DO ITEM 8
+    removeDishFromMenu(dishes: Dish[], dishToRemove: string): Dish[] {
+        return dishes.filter(
+            dish => dish.name !== dishToRemove
+        )
+    }
     //TO TO ITEM 9
 }
+
+const jacquin = new Chef(
+    "Jaquin", 20000
+)
+
+jacquin.removeDishFromMenu(dishes, "feijoada")
 
 
 
