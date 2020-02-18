@@ -15,7 +15,7 @@ const feijoada = new SaltyDish(
     "feijoada", 100, 20, ["leite condensado"], 100
 )
 
-const dishes: Dish[] = [
+let dishes: Dish[] = [
     tortaDeLimao,
     lasanha,
     feijoada,
@@ -46,7 +46,7 @@ const caixa = new Cashier(
     "Jose", 1300
 )
 
-console.log(dishes)
+// console.log(dishes)
 console.log("quantidade de funcionarios:", Employee.employeeNumber)
 // console.log(caixa.calculateBill(dishes))
 
@@ -58,7 +58,7 @@ class Manager extends Cashier {
 
 class Chef extends Employee {
     public sayJob(): string {
-        return "Você é a vergonha prrofission!"
+        return "Eu sou um Chef. Você é a vergonha porrofission!"
     }
     // TO DO ITEM 8
     removeDishFromMenu(dishes: Dish[], dishToRemove: string): Dish[] {
@@ -73,7 +73,9 @@ const jacquin = new Chef(
     "Jaquin", 20000
 )
 
-jacquin.removeDishFromMenu(dishes, "feijoada")
+dishes = jacquin.removeDishFromMenu(dishes, "feijoada")
+console.log(dishes)
+
 
 
 
