@@ -1,0 +1,8 @@
+Abra os arquivos fornecidos. Faça um pequeno texto explicando a estrutura dos arquivos:
+Quais são classes ou interfaces? Quais classes são filhas de outras ou implementam interfaces?
+
+client é uma interface.
+Place é uma classe abstrata com apenas o parametro cep.
+Commerce é uma classe é filha da classe abstrata Place, ela herda o cep e define os parametros name e cnpj.
+industry também é filha de Place. herda parametro cep e define industryName e industryNumber.
+Residence é filha de Place. herda cep, define name e cpf.
