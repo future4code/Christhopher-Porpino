@@ -1,0 +1,26 @@
+[
+    {
+        "holder": {
+            "name": "Jão",
+            "cpf": "123.456.789-00",
+            "age": "18"
+        },
+        "transactions": [
+            {
+                "cpf": 12345678900,
+                "value": "2235",
+                "description": "compras do mês",
+                "date": "10/02/2020"
+            }
+        ],
+        "balance": "8484772"
+    },
+    {
+        "cpf": "12312312355",
+        "name": "zezin",
+        "age": 46
+    },
+    {
+        "age": null
+    }
+]
