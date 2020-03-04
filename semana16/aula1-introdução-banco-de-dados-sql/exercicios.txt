@@ -1,0 +1,64 @@
+1.
+USE exercicios;
+DESCRIBE actors;
+
+a)
+SELECT first_name, last_name 
+FROM actors
+WHERE last_name LIKE "%a%";
+
+b)
+SELECT last_name 
+FROM actors
+WHERE first_name="DAN" OR first_name="JULIA";
+
+c)
+SELECT first_name, last_name 
+FROM actors
+WHERE first_name="ANGELINA" OR first_name LIKE "%b%";
+
+
+2.
+USE exercicios;
+DESCRIBE films;
+
+a)
+SELECT title, description
+FROM films
+WHERE length>=120;
+
+b)
+SELECT description, release_year, rating
+FROM films
+WHERE description LIKE "%documentary%";
+
+c)
+SELECT title, release_year, special_features 
+FROM films
+WHERE rating="nc-17" AND title LIKE "a%";
+
+d)
+SELECT *
+FROM films
+WHERE special_features LIKE "trailers" AND rating="PG-13" AND title like "%d%";
+
+e)
+USE `bouman-christhopher`;
+CREATE TABLE films (
+film_id int(10) UNSIGNED NOT NULL PRIMARY KEY,
+title  varchar(128)	NOT NULL,
+description varchar(255) NULL,
+release_year year(4) NULL,
+length	int(11) NULL,
+rating	enum('G','PG','PG-13','R','NC-17') NULL,
+special_features set('Trailers','Commentaries','Deleted Scenes','Behind the Scenes') NULL
+);
+
+INSERT INTO films (film_id, title, description, release_year, length, rating, special_features)
+VALUES (1, 'ALADDIN CALENDAR', 'A Action-Packed Tale of a Man And a Lumberjack who must Reach a Feminist in Ancient China', 2006, 63, 'NC-17', 'Trailers,Deleted Scenes'),
+(2, 'BEAST HUNCHBACK', 'A Awe-Inspiring Epistle of a Student And a Squirrel who must Defeat a Boy in Ancient China', 2006, 89, 'R', 'Deleted Scenes,Behind the Scenes'),
+(3, 'CALIFORNIA BIRDS', 'A Thrilling Yarn of a Database Administrator And a Robot who must Battle a Database Administrator in Ancient India', 2006, 75, 'NC-17', 'Trailers,Commentaries,Deleted Scenes'),
+(4, 'DESERT POSEIDON', 'A Brilliant Documentary of a Butler And a Frisbee who must Build a Astronaut in New Orleans', 2006, 64, 'R', 'Trailers,Behind the Scenes'),
+(5, 'ENDING CROWDS', 'A Unbelieveable Display of a Dentist And a Madman who must Vanquish a Squirrel in Berlin', 2006, 85, 'NC-17', 'Commentaries,Behind the Scenes')
+
+SELECT * FROM films;
