@@ -1,0 +1,114 @@
+USE `bouman-christhopher`;
+
+CREATE TABLE authors (
+author_id int(10) UNSIGNED NOT NULL PRIMARY KEY,
+first_name VARCHAR(15) not NULL,
+last_name VARCHAR(15) NOT NULL
+);
+
+CREATE TABLE publishers (
+publisher_id int(10) UNSIGNED NOT NULL PRIMARY KEY,
+name VARCHAR(15) not NULL,
+city VARCHAR(20) NOT NULL,
+foundation_date DATE
+);
+
+CREATE TABLE users (
+user_id int(10) UNSIGNED NOT NULL PRIMARY KEY,
+first_name VARCHAR(15) NOT NULL,
+last_name VARCHAR(15) NOT NULL,
+nationality VARCHAR(20) NOT NULL,
+birth_date DATE
+);
+
+CREATE TABLE books (
+book_id int(10) UNSIGNED NOT NULL,
+title  varchar(128) NOT NULL,
+author_id INT(10) UNSIGNED NOT NULL,
+publisher_id INT(10) UNSIGNED NOT NULL,
+release_year year(4) NULL,
+PRIMARY KEY (book_id),
+FOREIGN KEY (author_id) REFERENCES authors(author_id),
+FOREIGN KEY (publisher_id) REFERENCES publishers(publisher_id)
+);
+
+CREATE TABLE users_books (
+user_id int(10) UNSIGNED NOT NULL,
+book_id int(10) UNSIGNED NOT NULL,
+PRIMARY KEY (user_id, book_id),
+FOREIGN KEY (user_id) REFERENCES users(user_id),
+FOREIGN KEY (book_id) REFERENCES books(book_id)
+);
+
+
+#2. Popule as tabelas.
+
+ALTER TABLE publishers 
+modify name VARCHAR(255) not NULL;
+
+#Livros
+ALTER TABLE books 
+modify release_year DATE null;
+
+INSERT INTO users VALUES
+	(1,'Theresa','May','Brit�nica', '1956-10-01'),
+	(2,'Narendra','Modi','Indiano','1950-09-17'),
+	(3,'Chuck','Schumer','Americano','1950-11-23'),
+	(4,'Donald','Trump','Americano','1946-06-14'),
+	(5,'Elizabeth','Warren','Americana','1949-06-22'),
+	(6,'Julian','Assange','Australiano','1971-07-03'),
+	(7,'James','Comey','Americano','1960-12-14'),
+	(8,'Mark','Zuckerberg','Americano','1984-05-14'),
+	(9,'Elon','Musk','Sul-Africano','1971-06-28'),
+	(10,'Steve','Jobs','Americano','1955-02-24');
+
+INSERT INTO users_books VALUES
+	(2,2),
+	(3,1),
+	(5,6),
+	(1,4),
+	(6,4),
+	(4,5),
+	(8,3),
+	(7,9),
+	(3,3),
+	(1,5),
+	(10,6),
+	(9,7),
+	(7,5),
+	(10,9);
+
+#3.   Execute queries de acordo a obter as seguintes informa��es:
+
+#1. Todos os livros de um autor espec�fico a sua escolha, mostrando pelo menos o nome do autor e o nome do livro
+SELECT concat(first_name, ' ', last_name) author, title
+FROM books
+JOIN authors
+ON books.author_id = authors.author_id
+WHERE first_name like 'J. K.%';
+
+#2. Todos os livros cujo primeiro nome do autor come�a com A, mostrando o nome completo do autor e do livro
+SELECT title, concat(first_name, ' ', last_name) author
+FROM books
+JOIN authors
+ON books.author_id = authors.author_id
+WHERE first_name like 'A%';
+
+#3. Quantos livros cada autor possui na biblioteca, mostrando pelo menos o nome do autor e o n�mero de livros
+select count(*), concat(authors.first_name, ' ', authors.last_name) author
+from books
+JOIN authors
+ON books.author_id = authors.author_id
+GROUP BY author;
+
+
+#4. O livro mais alugado de todos, mostrando pelo menos o nome do livro
+select count(*), title
+from users_books
+JOIN books
+ON users_books.book_id = books.book_id
+GROUP BY title
+ORDER BY count(*) desc
+limit 1;
+
+#teste
