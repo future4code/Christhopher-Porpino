@@ -15,7 +15,7 @@
     "typescript": "3.7.3"
   },
   "devDependencies": {
-    "ts-node-dev": "^1.0.0-pre.44",
+    "ts-node-dev": "^1.0.0-pre.44"
   },
   "keywords": []
 }
