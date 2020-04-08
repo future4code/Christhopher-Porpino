@@ -10,6 +10,12 @@ import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
 
+const Root = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
 const StyledDiv = styled.div`
   display: flex;
@@ -18,10 +24,10 @@ const StyledDiv = styled.div`
   align-items: center;
   border-bottom: 1px solid grey;
   justify-content: flex-end;
-  background-color: white;
+  
   img {
     width: 78px;
-    height: 48x;
+    height: 40x;
     position: absolute;
     left: 16px;
   }
