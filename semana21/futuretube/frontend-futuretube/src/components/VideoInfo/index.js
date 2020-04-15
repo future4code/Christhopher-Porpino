@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-function VideoInfo() {
+function VideoInfo(props) {
     const classes = useStyles();
 
     return (
@@ -61,7 +61,7 @@ function VideoInfo() {
                         <MoreVertIcon />
                     </IconButton>
                 }
-                title="Shrimp and Chorizo Paella" // mostar nome do vídeo
+                title={props.children} // mostar nome do vídeo
                 subheader="September 14, 2016" // mostrar nome do usuário
             />
         </FooterCard>

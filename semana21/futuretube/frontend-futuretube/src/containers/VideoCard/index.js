@@ -4,6 +4,8 @@ import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import { red } from '@material-ui/core/colors';
 import VideoInfo from '../../components/VideoInfo';
+import { getAllVideos } from '../../actions/videos';
+import { connect } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,23 +30,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function VideoCard(props) {
+function VideoCard(props) {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
-      {props.children}
-      
-      {/* <CardMedia
-        className={classes.media}
-        image="https://picsum.photos/375/211"
-        image={props.src}
-        title={"thumbnail"}
-      /> */}
+      {/* {props.children} */}
 
+      {props.allVideos.map((video) =>
 
-
-      {/* <VideoInfo /> */}
+        <CardMedia>
+          <video src={video.url} width="100%"></video>
+          <VideoInfo>{video.title}</VideoInfo>
+        </CardMedia>
+      )}
     </Card>
   );
 }
+
+const mapStateToProps = (state) => ({
+  allVideos: state.videos.videos
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  getAllVideos: () => dispatch(getAllVideos(1))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(VideoCard);

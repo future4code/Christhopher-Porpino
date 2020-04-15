@@ -16,14 +16,6 @@ function Home(props) {
     <div>
       <Header />
       <VideoCard />
-      <div>
-        {props.allVideos.map((video) =>
-          <VideoCard >
-            <video src={video.url} width="300"></video>
-            <h2>{video.title}</h2>
-          </VideoCard>
-        )}
-      </div>
     </div>
   );
 }
