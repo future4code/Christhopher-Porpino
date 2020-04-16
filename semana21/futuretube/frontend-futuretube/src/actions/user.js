@@ -30,31 +30,23 @@ export const login = (email, password) => (dispatch) => {
 }
 
 export const signUp = user => dispatch => {
-
-    const data = {
-        'name': user.name,
-        'email': user.email,
-        'password': user.password,
-        'birthdate': user.birthdate,
-        'photo': user.photo
-    }
-
-    // const headers = {
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     }
-    // }
-
     try {
+        const data = {
+            'name': user.name,
+            'email': user.email,
+            'password': user.password,
+            'birthdate': user.birthdate,
+            'photo': user.photo
+        }
+
         axios.post(
             `http://localhost:3000/signup`,
-            data,
-            // headers
+            data
         ).then(
             response => {
                 window.localStorage.setItem('token', response.data.token)
-                dispatch(storeProfile(response.data.user))
-                dispatch(push(routes.address))
+                dispatch(storeUser(response.data.user))
+                dispatch(push(routes.home))
             }
         )
     } catch (err) {

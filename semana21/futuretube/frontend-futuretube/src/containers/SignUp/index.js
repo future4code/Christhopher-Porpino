@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import Button from '../../components/ActionButton';
 import LogoImg from "../../img/logo-futuretube.png";
 
-// import { ActionButton } from '../../components/ActionButton';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 // import { push } from 'connected-react-router';
 // import { routes } from '../Router/index';
-// import { goBack } from 'connected-react-router';
+import { goBack } from 'connected-react-router';
 import { HeaderNav } from '../HeaderNav';
-// import { signUp } from '../../actions/users'
+import { signUp } from '../../actions/user'
 // import LogoImg from "../../img/logo-futuretube.png";
 
 const Root = styled.div`
@@ -25,8 +24,8 @@ const Banner = styled.div`
   width: 40%;
   display: flex;
   justify-content: center;
-  margin-top: 34px;
-  margin-bottom: 30px;
+  margin-top: 14px;
+  margin-bottom: 10px;
   img {
     width: 100%
   }
@@ -42,17 +41,19 @@ function SignUp(props) {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [confirm, setConfirm] = useState("")
-
+    // const [confirm, setConfirm] = useState("")
+    const [birthdate, setBirthdate] = useState("")
+    const [photo, setPhoto] = useState("")
+    
     const handleSubmit = (ev) => {
         ev.preventDefault()
-        props.signUp({ name, email, password })
+        props.signUp({ name, email, password, birthdate, photo })
     }
 
     return (
         <Root>
             <HeaderNav
-            // onClick={() => props.goBack() } 
+            onClick={() => props.goBack()}
             />
 
             <Banner>
@@ -71,7 +72,7 @@ function SignUp(props) {
                     name="name"
                     type="text"
                     label="Nome"
-                    placeholder="Nome e cobrenome"
+                    placeholder="Nome e sobrenome"
                     value={name}
                     onChange={(event) => setName(event.target.value)}
                     margin="normal"
@@ -105,7 +106,7 @@ function SignUp(props) {
                     required
                     pattern={props.pattern}
                 />
-
+{/* 
                 <TextField
                     name="confirm"
                     type="password"
@@ -113,6 +114,32 @@ function SignUp(props) {
                     placeholder="Confirme a senha anterior"
                     value={confirm}
                     onChange={(event) => setConfirm(event.target.value)}
+                    margin="normal"
+                    variant="outlined"
+                    required
+                    pattern={props.pattern}
+                /> */}
+
+                <TextField
+                    name="birthdate"
+                    type="date"
+                    // label="Data de Nascimento"
+                    // placeholder="dd/mm/aaaa"
+                    value={birthdate}
+                    onChange={(event) => setBirthdate(event.target.value)}
+                    margin="normal"
+                    variant="outlined"
+                    required
+                    pattern={props.pattern}
+                />
+
+                <TextField
+                    name="photo"
+                    type="text"
+                    label="Url da foto de perfil"
+                    placeholder="Insira a url"
+                    value={photo}
+                    onChange={(event) => setPhoto(event.target.value)}
                     margin="normal"
                     variant="outlined"
                     required
@@ -133,11 +160,9 @@ function SignUp(props) {
     )
 }
 
-// const mapDispatchToProps = dispatch => ({
-//     goBack: () => dispatch(goBack()),
-//     signUp: (user) => dispatch(signUp(user))
-// })
+const mapDispatchToProps = dispatch => ({
+    goBack: () => dispatch(goBack()),
+    signUp: (user) => dispatch(signUp(user))
+})
 
-// export default connect(null, mapDispatchToProps)(SignUp)
-
-export default SignUp;
+export default connect(null, mapDispatchToProps)(SignUp)
