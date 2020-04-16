@@ -12,14 +12,20 @@ interface SignupInput {
 }
 
 export default class SignupUC {
-    constructor(
-        private database: UserDB
-    ) { }
+    constructor(private database: UserDB) { }
 
     async execute(input: SignupInput) {
-        const id= v4()
+        const id = v4()
         const rounds = 10
         const hash = await bcrypt.hash(input.password, rounds)
-        await this.database.signUp(new User(id, input.name, input.email, hash, input.birthDate, input.photo))
+        const newUser = new User(id, input.name, input.email, hash, input.birthDate, input.photo)
+        const token = User.generateToken(newUser.getId())
+
+        await this.database.signUp(newUser)
+
+        return{
+            message: "User successfully created",
+            token: token
+        }
     }
 }
