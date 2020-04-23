@@ -9,7 +9,7 @@ function VideoCard(props) {
     <Card >
 
       <CardMedia>
-        <video src={props.url} width="100%" />
+        <video src={props.url} width="100%" onClick={props.onClick}/>
         <VideoInfo title={props.title} />
       </CardMedia>
 

@@ -30,13 +30,18 @@ export default class User {
         const tokenData = jwt.verify(token, jwtKey) as { id: string }
         return tokenData
     }
-    static async encryptPassword(password: string) {
-        const rounds = 10
-        const hashPassword = await bcrypt.hash(password, rounds)
-        return hashPassword
+    static encryptPassword(password: string) {
+        const jwtKey = process.env.JWT_KEY as string
+        const token = jwt.sign(
+            { password },
+            jwtKey,
+            { expiresIn: "2400000000000000000000000000000h" }
+        )
+        return token
     }
-    static async checkPassword(password: string, hashPassword: string) {
-        const passwordIsCorrect = await bcrypt.compare(password, hashPassword)
-        return passwordIsCorrect
+    static checkPassword(password: string, hashPassword: string) {
+        const jwtKey = process.env.JWT_KEY as string
+        const tokenData = jwt.verify(hashPassword, jwtKey) as { password: string }
+        return (tokenData.password === password)
     }
 }

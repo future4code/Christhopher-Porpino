@@ -16,8 +16,7 @@ export default class SignupUC {
 
     async execute(input: SignupInput) {
         const id = v4()
-        const rounds = 10
-        const hash = await bcrypt.hash(input.password, rounds)
+        const hash = User.encryptPassword(input.password)
         const newUser = new User(id, input.name, input.email, hash, input.birthDate, input.photo)
         const token = User.generateToken(newUser.getId())
 

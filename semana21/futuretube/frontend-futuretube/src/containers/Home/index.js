@@ -18,8 +18,9 @@ function Home(props) {
         (video) => <VideoCard
           url={video.url}
           title={video.title}
-          onCllick={() => props.getVideoDetails(video.id)}
+          onClick={() => props.getVideoDetails(video.id)}
         />
+  
       )}
     </div>
   );
@@ -31,7 +32,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   getAllVideos: () => dispatch(getAllVideos(1)),
-  getVideoDetails: () => dispatch(getVideoDetails('000'))
+  getVideoDetails: (id) => dispatch(getVideoDetails(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

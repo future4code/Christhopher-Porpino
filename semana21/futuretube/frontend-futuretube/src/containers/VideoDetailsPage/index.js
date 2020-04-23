@@ -3,14 +3,9 @@ import { Header } from "../Header";
 import VideoPlayerComponent from "../../components/VideoPlayerComponent"
 import { getVideoDetails } from '../../actions/videos';
 import { connect } from 'react-redux';
+import { goBack } from 'connected-react-router'
 
 function VideoDetailsPage(props) {
-
-    React.useEffect(
-        () => {
-            props.getVideoDetails()
-        }, []
-    )
 
     return (
         <div>
@@ -24,24 +19,14 @@ function VideoDetailsPage(props) {
 }
 
 const mapStateToProps = (state) => ({
-    videoDetails: state.videoDetails.videoDetails
+    videoDetails: state.videos.videoDetails
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    getVideoDetails: () => dispatch(getVideoDetails('000'))
+    getVideoDetails: (id) => dispatch(getVideoDetails(id))
 })
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(VideoDetailsPage);
-
-
-// export default connect(
-//     state => ({
-//         selectedVideoDetails: state.restaurants.selectedVideoDetails
-//     }),
-//     dispatch => ({
-//         goBack: () => dispatch(goBack())
-//     })
-// )(VideoDetailsPage);

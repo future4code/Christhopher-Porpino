@@ -18,6 +18,7 @@ export default function videos(state = initialState, action) {
                 ...state, videos: action.payload.videos
             }
         case "STORE_VIDEO_DETAILS":
+            console.log(action.payload)
             return {
                 ...state, videoDetails: action.payload.videoDetails
             }

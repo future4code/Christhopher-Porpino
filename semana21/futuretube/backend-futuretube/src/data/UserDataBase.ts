@@ -11,7 +11,6 @@ export default class UserDB extends MainDB {
     }
 
     async signUp(user: User) {
-        console.log(user)
         try {
             await this.connection.raw(`
         INSERT INTO futuretube_USERS (id, name, email, password, birthdate, photo) values (
